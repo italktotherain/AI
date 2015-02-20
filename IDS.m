@@ -13,11 +13,13 @@ Q(1,:) = Puzzle; % queue of current states
 
 blankIndex = findBlank(current);
 validMoves = findValidMoves(blankIndex);
+% functions as a for loop with parameter "root != goal" (which is equivalent in my code to runtime still being 0)
 depth = 1;
-boolCheck = checkState(current);
 while runtime == 0
 	runtime = DLSearch(current, depth, runtime);
 	if (runtime != 0)
+		disp(runtime);
+		disp(current);
 		return % runtime is not 0, so a solution was found
 	end
 	depth = depth + 1; % no solution at this depth, go deeper next round
