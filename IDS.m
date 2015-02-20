@@ -1,8 +1,8 @@
-function [runtime] = IDS(P)
+function [runtime] = IDS(current)
 tic
 runtime = 0; % if runtime is 0 when checked, solution wasn't found 
 Puzzle = [1 2 3 4 5 6 7 8 9];
-if (isSolvable(Puzzle) == 0)
+if (isSolvable(current) == 0)
     disp('INVALID PUZZLE');
     return
 end
