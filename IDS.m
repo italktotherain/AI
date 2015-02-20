@@ -14,7 +14,8 @@ Q(1,:) = Puzzle; % queue of current states
 blankIndex = findBlank(current);
 validMoves = findValidMoves(blankIndex);
 depth = 1;
-while checkState(current) != 1
+boolCheck = checkState(current);
+while runtime != 0
 	runtime = DLSearch(current, depth, runtime);
 	if (runtime != 0)
 		return % runtime is not 0, so a solution was found
@@ -25,7 +26,8 @@ end
 % runtime is passed in only to have the same exact variable across functions
 function [runtime] = DLSearch(current, depth, runtime)
 if (depth >= 0)
-    if (checkState(current) == 1)
+    boolCheck = checkState(current);
+    if (boolCheck == 1)
         runtime = toc; % stop the clock, goal state found
         return % a number that isn't 0 will be returned, signalling a found solution
     end
