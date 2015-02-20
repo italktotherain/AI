@@ -15,7 +15,7 @@ blankIndex = findBlank(current);
 validMoves = findValidMoves(blankIndex);
 depth = 1;
 boolCheck = checkState(current);
-while runtime != 0
+while runtime == 0
 	runtime = DLSearch(current, depth, runtime);
 	if (runtime != 0)
 		return % runtime is not 0, so a solution was found
